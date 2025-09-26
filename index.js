@@ -21,6 +21,10 @@ lib.ssMetadata = [];
 		cjs.MovieClip.prototype.stop.call(this);
 	}
 }).prototype = p = new cjs.MovieClip();
+
+	
+AdobeAn.makeResponsive(true, 'both', true, 1, [canvas, preloaderDiv, anim_container, dom_overlay_container]);
+
 // symbols:
 
 
