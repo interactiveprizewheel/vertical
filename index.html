@@ -15,10 +15,12 @@
 <!-- write your code here -->
 <style>
   #animation_container, #_preload_div_ {
-	position:absolute;
+	position:relative;
 	margin:auto;
-	left:0;right:0;
-	top:0;bottom:0;
+	width: 100%;
+	max-width: 720px;
+	height: auto;
+	
   }
 </style>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
@@ -79,4 +81,5 @@ function handleComplete(evt,comp) {
 	</div>
     <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1280px; width: 720px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=_preloader.gif?1758848362556 style='vertical-align: middle; max-height: 100%'/></div>
 </body>
+
 </html>
