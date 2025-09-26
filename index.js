@@ -23,7 +23,38 @@ lib.ssMetadata = [];
 }).prototype = p = new cjs.MovieClip();
 
 	
-AdobeAn.makeResponsive(true, 'both', true, 1, [canvas, preloaderDiv, anim_container, dom_overlay_container]);
+function handleComplete(evt, comp) {
+  var lib = comp.getLibrary();
+  var ss = comp.getSpriteSheet();
+  var queue = evt.target;
+  var ssMetadata = lib.ssMetadata;
+  for (var i = 0; i < ssMetadata.length; i++) {
+    ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+      "images": [queue.getResult(ssMetadata[i].name)],
+      "frames": ssMetadata[i].frames
+    });
+  }
+
+  var preloaderDiv = document.getElementById("_preload_div_");
+  preloaderDiv.style.display = 'none';
+  canvas.style.display = 'block';
+  exportRoot = new lib.index();
+  stage = new lib.Stage(canvas);
+  stage.enableMouseOver();
+
+  fnStartAnimation = function() {
+    stage.addChild(exportRoot);
+    createjs.Ticker.framerate = lib.properties.fps;
+    createjs.Ticker.addEventListener("tick", stage);
+    stage.addEventListener("tick", stage._handleTick);
+  };
+
+  // ✅ Paste this line here
+  AdobeAn.makeResponsive(true, 'both', true, 1, [canvas, preloaderDiv, anim_container, dom_overlay_container]);
+
+  AdobeAn.compositionLoaded(lib.properties.id);
+  fnStartAnimation();
+}
 
 // symbols:
 
