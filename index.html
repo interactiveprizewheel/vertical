@@ -14,18 +14,15 @@
 <title>index</title>
 <!-- write your code here -->
 <style>
-  body {
-	overflow:auto;
-  }
   #animation_container, #_preload_div_ {
 	position:absolute;
 	margin:auto;
-	left:-100%;right:-100%;
-	top:-100%;bottom:-100%;
+	left:0;right:0;
+	top:0;bottom:0;
   }
 </style>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="index.js?1758846966444"></script>
+<script src="index.js?1758848362555"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -67,7 +64,7 @@ function handleComplete(evt,comp) {
 		stage.addEventListener("tick", stage._handleTick);
 	}	    
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(true,'both',true,2,[canvas,preloaderDiv,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,preloaderDiv,anim_container,dom_overlay_container]);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
@@ -80,6 +77,6 @@ function handleComplete(evt,comp) {
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:720px; height:1280px; position: absolute; left: 0px; top: 0px; display: none;">
 		</div>
 	</div>
-    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1280px; width: 720px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=_preloader.gif?1758846966445 style='vertical-align: middle; max-height: 100%'/></div>
+    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1280px; width: 720px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=_preloader.gif?1758848362556 style='vertical-align: middle; max-height: 100%'/></div>
 </body>
 </html>
